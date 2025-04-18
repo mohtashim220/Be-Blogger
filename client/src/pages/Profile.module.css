@@ -1,0 +1,29 @@
+.container{
+  border:1px solid black;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 5px 5px #dddbdb;
+  margin-bottom: 10px;
+}
+
+.button{
+  background-color:transparent;
+  color: black;
+  border-radius: 30px;
+  width: 200px;
+  border:1px solid black;
+}
+
+ 
+
+.button:hover{
+  background-color:black;
+  color:white
+  
+}
+
+input{
+  width: 90%;
+  border-radius: 50px;
+}
+

@@ -1,0 +1,16 @@
+.searchButton{
+  background-color:transparent;
+  color: black;
+  border-radius: 30px;
+  width: 200px;
+  border:1px solid black;
+}
+
+ 
+
+.searchButton:hover{
+  background-color:black;
+  color:white
+  
+}
+ 
