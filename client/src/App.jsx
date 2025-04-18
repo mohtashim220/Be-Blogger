@@ -18,17 +18,17 @@ export default function App() {
     <BrowserRouter>
   <Header />
       <Routes>  
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/sign-in" element={<SignIn/>}></Route>
-        <Route path="/sign-up" element={<SignUp/>}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/search" element={<Search/>}></Route>
-        <Route path="/home" element={<Home/>}></Route>
-        <Route path="/listing/:listingId" element={<Listing />}></Route>
+        <Route path="https://be-blogger-api.vercel.app" element={<Home/>}></Route>
+        <Route path="https://be-blogger-api.vercel.app/sign-in" element={<SignIn/>}></Route>
+        <Route path="https://be-blogger-api.vercel.app/sign-up" element={<SignUp/>}></Route>
+        <Route path="https://be-blogger-api.vercel.app/about" element={<About />}></Route>
+        <Route path="https://be-blogger-api.vercel.app/search" element={<Search/>}></Route>
+        <Route path="https://be-blogger-api.vercel.app/home" element={<Home/>}></Route>
+        <Route path="https://be-blogger-api.vercel.app/listing/:listingId" element={<Listing />}></Route>
         <Route element={<PrivateRoute/>}>
-          <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/create-listing" element={<Createlisting />}></Route>
-          <Route path="/update-listing/:listingId" element={<UpdateListing />}></Route>
+          <Route path="https://be-blogger-api.vercel.app/profile" element={<Profile />}></Route>
+          <Route path="https://be-blogger-api.vercel.app/create-listing" element={<Createlisting />}></Route>
+          <Route path="https://be-blogger-api.vercel.app/update-listing/:listingId" element={<UpdateListing />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
