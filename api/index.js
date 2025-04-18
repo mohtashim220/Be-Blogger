@@ -21,6 +21,14 @@ mongoose
   });
 
 const app = express();
+app.use(cors(
+  {
+    origin:["https://be-blogger-client.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+  }
+  ));
+
 
 app.use(express.json());
 
