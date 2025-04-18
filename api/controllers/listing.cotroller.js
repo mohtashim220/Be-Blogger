@@ -70,7 +70,7 @@ export const getListing = async (req, res, next) => {
 export const getListings = async (req, res, next) => {
   console.log("get listing APi is called");
   try {
-    const limit = parseInt(req.query.limit) || 9;
+    // const limit = parseInt(req.query.limit) || 9;
     const startIndex = parseInt(req.query.startIndex) || 0;
 
 
@@ -83,7 +83,7 @@ export const getListings = async (req, res, next) => {
        
     })
       .sort({ [sort]: order })
-      .limit(limit)
+      // .limit(limit)
       .skip(startIndex);
     console.log(listings)
     return res.status(200).json(listings);

@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?limit=10");
+        const res = await fetch("/api/listing");
         const data = await res.json();
         setListings(data);
          
