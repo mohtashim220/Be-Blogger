@@ -8,6 +8,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { app } from "../firebase";
+import  { toast } from "react-hot-toast";
 
 export default function CreateListing() {
   const { currentuser } = useSelector((state) => state.user);
@@ -41,7 +42,7 @@ export default function CreateListing() {
   }, []);
 
   const handleImageSubmit = (e) => {
-    if (files.length > 0 && files.length + formData.imagesURLs.length < 7) {
+    if (files.length > 0 && files.length + formData.imagesURLs.length < 2) {
       const promises = [];
       for (let i = 0; i < files.length; i++) {
         promises.push(storeImage(files[i]));
@@ -60,7 +61,7 @@ export default function CreateListing() {
           setUploading(false);
         });
     } else {
-      setImageUploadError("You can only upload up to 6 images per listing");
+      setImageUploadError("You can only 1 image");
       setUploading(false);
     }
   };
@@ -131,6 +132,7 @@ export default function CreateListing() {
         setError(data.message);
         return;
       }
+      toast.success("blog updated successfully")
       navigate(`/listing/${data._id}`);
     } catch (error) {
       setError(error.message);

@@ -3,6 +3,7 @@ import { FaIndianRupeeSign } from "react-icons/fa6";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
+import  { toast } from "react-hot-toast";
 import {
   getDownloadURL,
   getStorage,
@@ -134,6 +135,7 @@ export default function Creatlisting() {
       if (data.success === false) {
         setError(data.message);
       }
+      toast.success("blog created successfully")
       navigate(`/listing/${data._id}`)
       
     } catch (error) {

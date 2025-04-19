@@ -9,6 +9,7 @@ import {
 } from "firebase/storage";
 import { app } from "../firebase";
 import style from './Profile.module.css'
+import { toast } from 'react-hot-toast'
 
 
 import {
@@ -24,6 +25,7 @@ import {
 } from "../redux/user/userslice";
 
 import { useDispatch } from "react-redux";
+ 
 // import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
@@ -38,10 +40,7 @@ export default function Profile() {
   const [showListingerror, setShowLisitngError] = useState(false);
   const [userListings, setUserListings] = useState([]);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  //   console.log(formData);
-  // console.log(filePerc);
-  // console.log(fileUploaderror);
+   
 
   useEffect(() => {
     if (file) {
@@ -83,7 +82,7 @@ export default function Profile() {
     if (confirm("do you want to update your profile")) {
       console.log("update button is clicked");
       e.preventDefault();
-      console.log("currentuser is", currentuser);
+       
       try {
         dispatch(updateUserStart());
         console.log(currentuser._id);
@@ -101,7 +100,7 @@ export default function Profile() {
           return;
         }
         else{
-          alert("user updated successfully")
+           toast.success("user profile updated")
         }
         dispatch(updateUserSuccess(data));
         setUpdateSuccess(true);
@@ -112,6 +111,11 @@ export default function Profile() {
   };
 
   const handleDeleteUser = async () => {
+    const confirmDelete = window.confirm("Are you sure you want to delete account ?");
+  if (!confirmDelete) {
+    // Call your delete function
+    return
+  }
     try {
       dispatch(deleteUserStart());
       const res = await fetch(`/api/user/delete/${currentuser._id}`, {
@@ -123,6 +127,7 @@ export default function Profile() {
         dispatch(deleteUserFailure(data.message));
         return;
       } else {
+        toast.success("account deleted successfully")
         dispatch(deleteUserSuccess(data));
       }
     } catch (error) {
@@ -149,26 +154,7 @@ export default function Profile() {
     }
   }
 
-  // const showListing = async () => {
-  //   try {
-  //     setShowLisitngError(false);
-  //     const res = await fetch(`api/user/listings/${currentuser._id}`);
-  //     console.log(currentuser._id)
-  //     console.log(res)
-  //     const data = await res.json()
-  //     console.log(data)
-  //     if (data.success === false) {
-  //       showListingerror(true);
-  //       return;
-  //     }
-  //     setUserListings(data);
-  //     console.log(data);
-      
-  //   } catch (error) {
-  //     setShowLisitngError(true);
-      
-  //   }
-  // };
+   
 
   useEffect(() => {
     const showListing = async () => {
@@ -193,6 +179,11 @@ export default function Profile() {
   
 
   const handleListingDelete = async (listingId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this blog?");
+  if (!confirmDelete) {
+     
+    return
+  }
     try {
       const res = await fetch(`/api/listing/delete/${listingId}`, {
         method: 'DELETE',
@@ -203,6 +194,7 @@ export default function Profile() {
         console.log(data.message);
         return;
       }
+      toast.success("blog deleted successfully")
       setUserListings((prev) => prev.filter((listing)=> listing._id !== listingId));
     
 
@@ -273,7 +265,7 @@ export default function Profile() {
           disabled={loading}
           className={` ${style.button} p-3 uppercase `}
         >
-          {loading ? "loading" : "update"}
+          {loading ? "loading..." : "update"}
         </button>
         <Link
           className={` ${style.button} p-3 uppercase `}
@@ -298,10 +290,7 @@ export default function Profile() {
         </span>
       </div>
       <p className="text-red-700 mt-5"> {error ? error : ""}</p>
-      <p className="text-green-700 mt-5">
-        {" "}
-        {updateSuccess ? "user updated successfully" : ""}
-      </p>
+       
 
 
 
