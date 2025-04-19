@@ -42,7 +42,7 @@ export default function Header() {
         <span>Blogger</span>
       </h1>
     </Link>
-y
+
     {/* Search */}
     <form
       onSubmit={handleSubmit}
