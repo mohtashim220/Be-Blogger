@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const res = await fetch("/api/listing");
+        const res = await fetch("/api/listing/get?");
         const data = await res.json();
         setListings(data);
          
@@ -55,6 +55,7 @@ export default function Home() {
                 <ListingItem listing={listing} key={listing._id} />
               ))}
             </div>
+            
           </div>
         )}
          
