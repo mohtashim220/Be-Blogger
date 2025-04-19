@@ -35,15 +35,15 @@ export default function Header() {
     <header className="bg-gray-900 shadow-md sticky top-0 z-50">
   <div className="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto px-4 py-3">
     
-    {/* Logo */}
+ 
     <Link to="/" className="flex items-center mb-2 sm:mb-0">
       <h1 className="font-extrabold text-white text-2xl tracking-tight">
         <span className="text-indigo-400">Be</span>
         <span>Blogger</span>
       </h1>
     </Link>
-y
-    {/* Search */}
+
+   
     <form
       onSubmit={handleSubmit}
       className="flex items-center bg-gray-800 px-3 py-2 rounded-full text-white w-full sm:w-auto mb-2 sm:mb-0"
