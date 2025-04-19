@@ -226,7 +226,7 @@ export default function CreateListing() {
             disabled={loading || uploading}
             className="w-full mt-4 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50"
           >
-            {loading ? "Updating..." : "Update Listing"}
+            {loading ? "Updating..." : "Update Blog"}
           </button>
 
           {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
