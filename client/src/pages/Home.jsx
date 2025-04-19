@@ -14,9 +14,11 @@ export default function Home() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?");
+        const res = await fetch("/api/listing/get");
         const data = await res.json();
+         
         setListings(data);
+        console.log(Listings.length)
          
       } catch (error) {
         console.log(error);
